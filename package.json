@@ -1,0 +1,17 @@
+{
+  "name": "penalty-game-js",
+  "version": "1.0.0",
+  "description": "Tarayıcıda çalışan modern penaltı atışı oyunu.",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "check": "node --check script.js"
+  },
+  "keywords": [
+    "penalty",
+    "football",
+    "game",
+    "javascript"
+  ],
+  "license": "MIT"
+}
