@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern ve animasyonlu tarayıcı tabanlı penaltı atışı oyunu. Sol, orta veya sağ seçerek gol atmaya çalış!">
+    <title>⚽ Penaltı Atışı - Futbol Oyunu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Arka Plan Parçacıkları -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Ana Oyun Konteyneri -->
+    <div class="game-container" id="gameContainer">
+
+        <!-- Başlık -->
+        <header class="game-header">
+            <h1 class="game-title">
+                <span class="title-icon">⚽</span>
+                Penaltı Atışı
+            </h1>
+            <p class="game-subtitle">Yönünü seç ve gol at!</p>
+        </header>
+
+        <!-- Skor Tablosu -->
+        <div class="scoreboard" id="scoreboard">
+            <div class="score-card goals">
+                <div class="score-icon">🥅</div>
+                <div class="score-info">
+                    <span class="score-label">Gol</span>
+                    <span class="score-value" id="goalCount">0</span>
+                </div>
+            </div>
+            <div class="score-divider"></div>
+            <div class="score-card saves">
+                <div class="score-icon">🧤</div>
+                <div class="score-info">
+                    <span class="score-label">Kurtarış</span>
+                    <span class="score-value" id="saveCount">0</span>
+                </div>
+            </div>
+            <div class="score-divider"></div>
+            <div class="score-card total">
+                <div class="score-icon">📊</div>
+                <div class="score-info">
+                    <span class="score-label">Toplam</span>
+                    <span class="score-value" id="totalCount">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saha & Kale Alanı -->
+        <div class="field-area" id="fieldArea">
+            <div class="stadium-lights">
+                <div class="light light-left"></div>
+                <div class="light light-right"></div>
+            </div>
+
+            <div class="goal" id="goal">
+                <div class="goal-post goal-post-left"></div>
+                <div class="goal-post goal-post-right"></div>
+                <div class="goal-crossbar"></div>
+                <div class="goal-net"></div>
+
+                <div class="goal-zone goal-zone-left" id="zoneLeft"></div>
+                <div class="goal-zone goal-zone-center" id="zoneCenter"></div>
+                <div class="goal-zone goal-zone-right" id="zoneRight"></div>
+
+                <!-- Kaleci -->
+                <div class="goalkeeper" id="goalkeeper">
+                    <div class="keeper-head"></div>
+                    <div class="keeper-body"></div>
+                    <div class="keeper-arm keeper-arm-left"></div>
+                    <div class="keeper-arm keeper-arm-right"></div>
+                    <div class="keeper-leg keeper-leg-left"></div>
+                    <div class="keeper-leg keeper-leg-right"></div>
+                    <div class="keeper-glove keeper-glove-left"></div>
+                    <div class="keeper-glove keeper-glove-right"></div>
+                </div>
+            </div>
+
+            <!-- Top -->
+            <div class="ball" id="ball">
+                <div class="ball-pattern"></div>
+            </div>
+
+            <!-- Penaltı Noktası -->
+            <div class="penalty-spot"></div>
+        </div>
+
+        <!-- Sonuç Mesajı -->
+        <div class="result-message" id="resultMessage">
+            <span class="result-text" id="resultText"></span>
+        </div>
+
+        <!-- Kontrol Butonları -->
+        <div class="controls" id="controls">
+            <button class="btn btn-direction btn-left" id="btnLeft" onclick="shoot('left')">
+                <span class="btn-arrow">←</span>
+                <span class="btn-label">Sol</span>
+            </button>
+            <button class="btn btn-direction btn-center" id="btnCenter" onclick="shoot('center')">
+                <span class="btn-arrow">↑</span>
+                <span class="btn-label">Orta</span>
+            </button>
+            <button class="btn btn-direction btn-right" id="btnRight" onclick="shoot('right')">
+                <span class="btn-arrow">→</span>
+                <span class="btn-label">Sağ</span>
+            </button>
+        </div>
+
+        <!-- Reset Butonu -->
+        <button class="btn btn-reset" id="btnReset" onclick="resetGame()">
+            <span class="reset-icon">🔄</span>
+            Sıfırla
+        </button>
+
+        <!-- Konfeti Konteyneri -->
+        <div class="confetti-container" id="confettiContainer"></div>
+    </div>
+
+    <!-- =============================================
+         MODÜLER SCRIPT YÜKLEME (sıra önemlidir!)
+         1. Core (temel sınıflar)
+         2. Modules (oyun nesneleri)
+         3. Services (servisler)
+         4. UI (arayüz)
+         5. Utils (yardımcılar)
+         6. Ana başlatıcı
+    ============================================== -->
+    <script src="src/core/GameObject.js"></script>
+    <script src="src/core/ScoreManager.js"></script>
+    <script src="src/modules/Ball.js"></script>
+    <script src="src/modules/Goalkeeper.js"></script>
+    <script src="src/services/AudioService.js"></script>
+    <script src="src/ui/UIManager.js"></script>
+    <script src="src/utils/ParticleUtils.js"></script>
+    <script src="src/core/Game.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
