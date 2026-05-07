@@ -106,22 +106,22 @@
 
         <!-- Kontrol Butonları -->
         <div class="controls" id="controls">
-            <button class="btn btn-direction btn-left" id="btnLeft" onclick="shoot('left')">
+            <button class="btn btn-direction btn-left" id="btnLeft" type="button" aria-label="Sola penaltı at">
                 <span class="btn-arrow">←</span>
                 <span class="btn-label">Sol</span>
             </button>
-            <button class="btn btn-direction btn-center" id="btnCenter" onclick="shoot('center')">
+            <button class="btn btn-direction btn-center" id="btnCenter" type="button" aria-label="Ortaya penaltı at">
                 <span class="btn-arrow">↑</span>
                 <span class="btn-label">Orta</span>
             </button>
-            <button class="btn btn-direction btn-right" id="btnRight" onclick="shoot('right')">
+            <button class="btn btn-direction btn-right" id="btnRight" type="button" aria-label="Sağa penaltı at">
                 <span class="btn-arrow">→</span>
                 <span class="btn-label">Sağ</span>
             </button>
         </div>
 
         <!-- Reset Butonu -->
-        <button class="btn btn-reset" id="btnReset" onclick="resetGame()">
+        <button class="btn btn-reset" id="btnReset" type="button" aria-label="Oyunu sıfırla">
             <span class="reset-icon">🔄</span>
             Sıfırla
         </button>
@@ -130,6 +130,6 @@
         <div class="confetti-container" id="confettiContainer"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
